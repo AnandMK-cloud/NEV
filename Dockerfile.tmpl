@@ -218,7 +218,8 @@ RUN pip install ibis-framework && \
 RUN pip install scipy && \
     pip install scikit-learn && \
     # Scikit-learn accelerated library for x86 
-    pip install scikit-learn-intelex && \
+    # TODO(b/262387811#4) Unpin when the package is fixed.
+    pip install scikit-learn-intelex==2021.6.3 && \
     # HDF5 support
     pip install h5py && \
     pip install biopython && \
@@ -239,6 +240,7 @@ RUN pip install scipy && \
     apt-get install -y pandoc && \
     pip install git+https://github.com/scikit-learn-contrib/py-earth.git@issue191 && \
     pip install essentia && \
+    apt-get install -y git-lfs && \
     /tmp/clean-layer.sh
 
 # vtk with dependencies
